@@ -28,17 +28,17 @@ things there.
           renderer: @type
           element: @$.display
           series: allSeries
-        if @querySelector 'xaxis' and false
-          labels = @querySelectorAll 'xaxis > label'
-            .array()
-            .map (label) ->
-              label.innerText
-          console.log labels
+        if @querySelector 'xaxis[grid]'
           @xaxis = new Rickshaw.Graph.Axis.X
             graph: @graph
             orientation: 'bottom'
             element: @$.xaxis
-            tickFormat: (n) -> labels[n]
+            tickFormat: -> ''
+        if @querySelector 'yaxis[grid]'
+          @yaxis = new Rickshaw.Graph.Axis.Y
+            graph: @graph
+            tickFormat: (y) ->
+              y if y
 
 
         @graph.render()
