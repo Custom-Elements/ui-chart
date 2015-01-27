@@ -19,14 +19,28 @@ This carries along styling from the `<series>` in the overall markup, so color
 things there.
 
       render: ->
-        allSeries = @querySelectorAll('series')
+        allSeries = @querySelectorAll 'series'
           .array()
           .map (series) ->
             data: series.innerText.split(' ').map (datum, i) -> {x: i, y: Number(datum)}
             color: window.getComputedStyle(series).getPropertyValue('color')
         @graph = new Rickshaw.Graph
+          renderer: @type
           element: @$.display
           series: allSeries
+        if @querySelector 'xaxis' and false
+          labels = @querySelectorAll 'xaxis > label'
+            .array()
+            .map (label) ->
+              label.innerText
+          console.log labels
+          @xaxis = new Rickshaw.Graph.Axis.X
+            graph: @graph
+            orientation: 'bottom'
+            element: @$.xaxis
+            tickFormat: (n) -> labels[n]
+
+
         @graph.render()
         @onMutation @, @render
 
@@ -40,6 +54,9 @@ things there.
 
       attached: ->
         @render()
+        window.addEventListener 'resize', =>
+          @$.display.removeChild @shadowRoot.querySelector 'svg'
+          @render()
 
       domReady: ->
 

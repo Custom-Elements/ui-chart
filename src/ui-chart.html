@@ -1,8 +1,9 @@
-<polymer-element name="ui-chart" attributes="">
+<polymer-element name="ui-chart" attributes="type">
 <template>
   <link rel="stylesheet" type="text/css" href="./ui-chart.less">
   <section id="display"></section>
-  <content></content>
+  <content select="xaxis">
+  </content>
 </template>
 <script src="./ui-chart.litcoffee"></script>
 </polymer-element>
