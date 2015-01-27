@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>ui-chart</title>
+    <link rel="import" href="node_modules/polymer/polymer.html">
+    <link rel="stylesheet" type="text/css" href="node_modules/ui-styles/visual-elements.less">
+    <link rel="import" href="src/ui-chart.html">
+    <style>
+      body {
+        font-family: "Helvetica Neue", "Helvetica", Arial;
+      }
+    </style>
+  </head>
+  <body unresolved>
+    <ui-chart>
+      <series red>2 4 20 10 40</series>
+      <series>1 2 10 5 20</series>
+    </ui-chart>
+    <script>
+      document.addEventListener('polymer-ready', function() {
+        //poke your element here
+      })
+    </script>
+  </body>
+</html>
