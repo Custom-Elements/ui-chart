@@ -10,14 +10,19 @@
       body {
         font-family: "Helvetica Neue", "Helvetica", Arial;
       }
+      #line, #bar {
+        height: 10em;
+        width: 20em;
+        margin-bottom: 1em;
+      }
     </style>
   </head>
   <body unresolved>
-    <ui-chart>
+    <ui-chart id="line">
       <series red>2 4 20 10 40</series>
       <series>1 2 10 5 20</series>
     </ui-chart>
-    <ui-chart type="bar">
+    <ui-chart type="bar" id="bar">
       <series red>2 4 20 10 40</series>
       <series>1 2 10 5 20</series>
       <yaxis grid></yaxis>
@@ -31,7 +36,6 @@
     </ui-chart>
     <script>
       document.addEventListener('polymer-ready', function() {
-        //poke your element here
       })
     </script>
   </body>

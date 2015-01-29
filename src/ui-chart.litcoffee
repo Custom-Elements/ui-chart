@@ -22,7 +22,12 @@ things there.
         allSeries = @querySelectorAll 'series'
           .array()
           .map (series) ->
-            data: series.innerText.split(' ').map (datum, i) -> {x: i, y: Number(datum)}
+            if series.value
+              data = series.value.map (datum, i) -> {x: i, y: datum}
+            else
+              data = series.innerText.split(' ').map (datum, i) -> {x: i, y: Number(datum)}
+            console.log data
+            data: data
             color: window.getComputedStyle(series).getPropertyValue('color')
         @graph = new Rickshaw.Graph
           renderer: @type
@@ -40,7 +45,10 @@ things there.
             tickFormat: (y) ->
               y if y
 
-
+        bounds = @$.display.  getBoundingClientRect()
+        @graph.setSize
+          width: bounds.right - bounds.left
+          height: bounds.bottom - bounds.top
         @graph.render()
         @onMutation @, @render
 
