@@ -2,11 +2,11 @@
   "name": "ui-chart",
   "version": "0.0.0",
   "dependencies": {
-    "polymer": "git://github.com/custom-elements/polymer#master",
-    "polymer-serve": "git://github.com/custom-elements/polymer-serve#master",
+    "polymer": "git+https://github.com/custom-elements/polymer#master",
+    "polymer-serve": "git+https://github.com/custom-elements/polymer-serve#master",
     "rickshaw": "^1.5.1",
-    "ui-fonts": "git://github.com/custom-elements/ui-fonts#master",
-    "ui-styles": "git://github.com/custom-elements/ui-styles#master"
+    "ui-fonts": "git+https://github.com/custom-elements/ui-fonts#master",
+    "ui-styles": "git+https://github.com/custom-elements/ui-styles#master"
   },
   "license": "ISC",
   "scripts": {
